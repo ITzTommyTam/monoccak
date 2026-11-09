@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trọn Bộ 250+ Từ Vựng Tiếng Anh 12 (Unit 1 - 3 & Review 1)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --success: #10b981;
+      --danger: #ef4444;
+      --bg: #0b0f19;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', system-ui, sans-serif; }
+    body {
+      background: var(--bg);
+      background-image: radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.2) 0px, transparent 50%),
+                        radial-gradient(at 100% 100%, rgba(236, 72, 153, 0.15) 0px, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+    .app-box {
+      width: 100%;
+      max-width: 680px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 26px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    }
+    header { text-align: center; margin-bottom: 20px; }
+    header h1 { font-size: 1.5rem; font-weight: 800; color: #a5b4fc; margin-bottom: 6px; }
+    header p { font-size: 0.9rem; color: var(--text-muted); }
+
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; text-align: left; }
+    label { font-size: 0.85rem; font-weight: 700; color: #cbd5e1; }
+    select {
+      padding: 13px 16px;
+      border-radius: 12px;
+      background: #0f172a;
+      color: white;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .btn-main {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 20px -5px rgba(99, 102, 241, 0.4);
+      transition: 0.2s;
+    }
+    .btn-main:active { transform: scale(0.98); }
+
+    .top-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+    }
+    .badge {
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: rgba(99, 102, 241, 0.2);
+      color: #a5b4fc;
+      border: 1px solid rgba(165, 180, 252, 0.3);
+    }
+    .progress-bar {
+      height: 8px;
+      width: 100%;
+      background: #334155;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #6366f1, #ec4899);
+      transition: width 0.25s;
+    }
+
+    .vocab-card {
+      background: #0f172a;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 26px 20px;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .vocab-word { font-size: 1.9rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .vocab-type { display: inline-block; font-size: 0.85rem; color: #818cf8; background: rgba(129, 140, 248, 0.15); padding: 3px 12px; border-radius: 6px; font-weight: 600; }
+    .hint-sub { font-size: 0.85rem; color: var(--text-muted); margin-top: 12px; }
+
+    .options-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .opt-btn {
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: #1e293b;
+      border: 1.5px solid var(--border);
+      color: #f1f5f9;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.15s;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--primary); background: #28334e; }
+    .opt-btn.correct { background: rgba(16, 185, 129, 0.2) !important; border-color: var(--success) !important; color: #4ade80 !important; }
+    .opt-btn.wrong { background: rgba(239, 68, 68, 0.2) !important; border-color: var(--danger) !important; color: #f87171 !important; }
+
+    .flashcard-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .btn-fc { padding: 14px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; }
+    .btn-fc-wrong { background: rgba(239, 68, 68, 0.2); border: 1px solid var(--danger); color: #fca5a5; }
+    .btn-fc-correct { background: rgba(16, 185, 129, 0.2); border: 1px solid var(--success); color: #86efac; }
+
+    .btn-next {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .result-box { text-align: center; }
+    .result-score { font-size: 2.8rem; font-weight: 800; color: #818cf8; margin: 10px 0; }
+    .mistake-list { max-height: 280px; overflow-y: auto; text-align: left; display: flex; flex-direction: column; gap: 8px; margin: 16px 0; padding-right: 4px; }
+    .mistake-item { background: #0f172a; border-left: 4px solid var(--danger); padding: 10px 14px; border-radius: 8px; display: flex; justify-content: space-between; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+<div class="app-box">
+  <header>
+    <h1>TRỌN BỘ TỪ VỰNG TIẾNG ANH 12</h1>
+    <p id="totalVocabCountHeader">Đang tải toàn bộ từ vựng giáo trình...</p>
+  </header>
+
+  <!-- MÀN HÌNH CÀI ĐẶT -->
+  <div id="setupView">
+    <div class="form-group">
+      <label>1. Chọn phạm vi ôn thi:</label>
+      <select id="unitSelect">
+        <option value="ALL">Toàn bộ 250+ từ vựng (Unit 1 + Unit 2 + Unit 3 + Review 1)</option>
+        <option value="1">Unit 1: Life Story We Admire (Khoảng 90 từ)</option>
+        <option value="2">Unit 2: A Multicultural World (Khoảng 95 từ)</option>
+        <option value="3">Unit 3: Green Living (Khoảng 85 từ)</option>
+        <option value="R1">Review 1 (Language & Skills)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>2. Phương thức ôn luyện:</label>
+      <select id="modeSelect">
+        <option value="mc_eng_to_vie">Trắc nghiệm: Cho từ Tiếng Anh ➔ Chọn nghĩa Tiếng Việt</option>
+        <option value="mc_vie_to_eng">Trắc nghiệm: Cho nghĩa Tiếng Việt ➔ Chọn từ Tiếng Anh</option>
+        <option value="flashcard">Lật thẻ phản xạ (Active Recall - Tự nhớ nghĩa trước)</option>
+      </select>
+    </div>
+
+    <button type="button" class="btn-main" id="startBtn">BẮT ĐẦU ÔN TẬP NGAY</button>
+  </div>
+
+  <!-- MÀN HÌNH BÀI LÀM -->
+  <div id="quizView" style="display: none;">
+    <div class="top-stats">
+      <span class="badge" id="badgeUnit">Unit 1</span>
+      <span id="statProgress">1 / 250</span>
+      <span id="statScore">Đúng: 0 | Sai: 0</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- KHUNG TỪ VỰNG -->
+    <div class="vocab-card" id="cardBox" onclick="handleCardClick()">
+      <div class="vocab-word" id="displayWord">admire</div>
+      <div class="vocab-type" id="displayType">(v)</div>
+      <div class="hint-sub" id="displayHint"></div>
+    </div>
+
+    <!-- KHU TRẮC NGHIỆM -->
+    <div id="multipleChoiceArea" class="options-grid"></div>
+
+    <!-- KHU LẬT THẺ -->
+    <div id="flashcardArea" style="display: none;">
+      <div class="flashcard-actions">
+        <button type="button" class="btn-fc btn-fc-wrong" onclick="evalFlashcard(false)">❌ Chưa thuộc</button>
+        <button type="button" class="btn-fc btn-fc-correct" onclick="evalFlashcard(true)">✅ Đã nhớ chuẩn</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn-next" id="nextBtn" style="display: none;" onclick="goToNext()">Câu tiếp theo ➔</button>
+  </div>
+
+  <!-- MÀN HÌNH TỔNG KẾT & CÂU SAI -->
+  <div id="resultView" class="result-box" style="display: none;">
+    <h2>Kết Quả Lượt Ôn</h2>
+    <div class="result-score" id="scorePercent">0%</div>
+    <p id="resultText" style="color: var(--text-muted);"></p>
+
+    <div id="mistakeSection" style="display: none;">
+      <h3 style="font-size: 1rem; color: #f87171; margin-top: 16px; text-align: left;">Các từ bạn đã làm sai:</h3>
+      <div class="mistake-list" id="mistakeList"></div>
+      <button type="button" class="btn-main" style="background: #ea580c; margin-bottom: 10px;" onclick="retryMistakes()">🔁 Luyện riêng danh sách câu sai này</button>
+    </div>
+
+    <button type="button" class="btn-main" style="background: #334155; margin-top: 8px;" onclick="backToMenu()">Quay lại Menu chính</button>
+  </div>
+</div>
+
+<script>
+// ==========================================
+// TOÀN BỘ 250+ TỪ VỰNG TỪ 11 TRANG TÀI LIỆU
+// ==========================================
+const FULL_VOCAB = [
+  // --- UNIT 1: LIFE STORY WE ADMIRE ---
+  { word: "admire", type: "v", meaning: "ngưỡng mộ, khâm phục", unit: "1" },
+  { word: "admiration", type: "n", meaning: "sự ngưỡng mộ, lòng khâm phục", unit: "1" },
+  { word: "admirable", type: "adj", meaning: "đáng ngưỡng mộ, đáng khâm phục", unit: "1" },
+  { word: "diary", type: "n", meaning: "nhật ký", unit: "1" },
+  { word: "volunteer + to V", type: "v/n", meaning: "tình nguyện, xung phong / tình nguyện viên", unit: "1" },
+  { word: "voluntary", type: "adj", meaning: "tự nguyện; tình nguyện", unit: "1" },
+  { word: "voluntarily", type: "adv", meaning: "một cách tự nguyện", unit: "1" },
+  { word: "join", type: "v", meaning: "tham gia, gia nhập", unit: "1" },
+  { word: "army", type: "n", meaning: "quân đội", unit: "1" },
+  { word: "surgeon", type: "n", meaning: "bác sĩ phẫu thuật", unit: "1" },
+  { word: "surgery", type: "n", meaning: "cuộc phẫu thuật", unit: "1" },
+  { word: "resist", type: "v", meaning: "chống lại, kháng cự", unit: "1" },
+  { word: "resistance", type: "n", meaning: "sự kháng cự", unit: "1" },
+  { word: "resistant", type: "adj", meaning: "có khả năng chống lại", unit: "1" },
+  { word: "field hospital", type: "n", meaning: "bệnh viện dã chiến", unit: "1" },
+  { word: "account", type: "n", meaning: "lời kể, bản ghi chép", unit: "1" },
+  { word: "alive", type: "adj", meaning: "còn sống", unit: "1" },
+  { word: "enemy", type: "n", meaning: "kẻ thù", unit: "1" },
+  { word: "duty", type: "n", meaning: "nhiệm vụ", unit: "1" },
+  { word: "do one's duty", type: "phr", meaning: "làm nhiệm vụ", unit: "1" },
+  { word: "soldier", type: "n", meaning: "người lính", unit: "1" },
+  { word: "death", type: "n", meaning: "cái chết", unit: "1" },
+  { word: "dead", type: "adj", meaning: "chết", unit: "1" },
+  { word: "deadly", type: "adj", meaning: "chết người, chí mạng", unit: "1" },
+  { word: "publish", type: "v", meaning: "xuất bản", unit: "1" },
+  { word: "publication", type: "n", meaning: "sự xuất bản; ấn phẩm", unit: "1" },
+  { word: "publisher", type: "n", meaning: "nhà xuất bản", unit: "1" },
+  { word: "translate into", type: "v", meaning: "dịch sang", unit: "1" },
+  { word: "translation", type: "n", meaning: "bản dịch; sự dịch thuật", unit: "1" },
+  { word: "translator", type: "n", meaning: "biên dịch viên, dịch giả", unit: "1" },
+  { word: "consider", type: "v", meaning: "cân nhắc; xem xét, coi là", unit: "1" },
+  { word: "consideration", type: "n", meaning: "sự cân nhắc; sự xem xét", unit: "1" },
+  { word: "considerate", type: "adj", meaning: "chu đáo, biết quan tâm", unit: "1" },
+  { word: "devote sth to sth/sb", type: "v", meaning: "cống hiến cái gì cho ai/cái gì", unit: "1" },
+  { word: "operate on sb/sth", type: "v", meaning: "phẫu thuật cho ai/cái gì", unit: "1" },
+  { word: "operation", type: "n", meaning: "ca phẫu thuật", unit: "1" },
+  { word: "decade", type: "n", meaning: "thập kỷ (10 năm)", unit: "1" },
+  { word: "describe", type: "v", meaning: "mô tả, miêu tả", unit: "1" },
+  { word: "description", type: "n", meaning: "sự mô tả", unit: "1" },
+  { word: "descriptive", type: "adj", meaning: "mang tính mô tả", unit: "1" },
+  { word: "be based on", type: "phr", meaning: "dựa trên", unit: "1" },
+  { word: "attend", type: "v", meaning: "tham dự, tham gia", unit: "1" },
+  { word: "achieve", type: "v", meaning: "đạt được, giành được", unit: "1" },
+  { word: "achievement", type: "n", meaning: "thành tựu", unit: "1" },
+  { word: "achievable", type: "adj", meaning: "có thể đạt được", unit: "1" },
+  { word: "impress", type: "v", meaning: "gây ấn tượng", unit: "1" },
+  { word: "impression", type: "n", meaning: "sự ấn tượng", unit: "1" },
+  { word: "impressive", type: "adj", meaning: "gây ấn tượng sâu sắc", unit: "1" },
+  { word: "impressed by/with", type: "adj", meaning: "cảm thấy ấn tượng", unit: "1" },
+  { word: "marry", type: "v", meaning: "kết hôn", unit: "1" },
+  { word: "marriage", type: "n", meaning: "hôn nhân", unit: "1" },
+  { word: "married", type: "adj", meaning: "đã kết hôn", unit: "1" },
+  { word: "be/get married to sb", type: "phr", meaning: "kết hôn với ai", unit: "1" },
+  { word: "phonograph", type: "n", meaning: "máy hát đĩa", unit: "1" },
+  { word: "hero", type: "n", meaning: "anh hùng", unit: "1" },
+  { word: "heroine", type: "n", meaning: "nữ anh hùng", unit: "1" },
+  { word: "heroic", type: "adj", meaning: "anh dũng, dũng cảm", unit: "1" },
+  { word: "light - lit - lit", type: "v", meaning: "thắp, châm lửa", unit: "1" },
+  { word: "fireplace", type: "n", meaning: "lò sưởi", unit: "1" },
+  { word: "apply to s.o for sth", type: "v", meaning: "nộp đơn xin ai việc gì", unit: "1" },
+  { word: "create", type: "v", meaning: "tạo ra, sáng tạo", unit: "1" },
+  { word: "creation", type: "n", meaning: "sự sáng tạo", unit: "1" },
+  { word: "creative", type: "adj", meaning: "sáng tạo", unit: "1" },
+  { word: "creativity", type: "n", meaning: "tính sáng tạo", unit: "1" },
+  { word: "genius", type: "n", meaning: "thiên tài", unit: "1" },
+  { word: "biology", type: "n", meaning: "sinh học", unit: "1" },
+  { word: "biological", type: "adj", meaning: "thuộc về sinh học", unit: "1" },
+  { word: "biological parents", type: "n", meaning: "cha mẹ ruột", unit: "1" },
+  { word: "adopt", type: "v", meaning: "nhận nuôi; áp dụng", unit: "1" },
+  { word: "adoption", type: "n", meaning: "sự nhận nuôi; sự áp dụng", unit: "1" },
+  { word: "bond over sth", type: "v", meaning: "gắn kết nhờ có cùng sở thích", unit: "1" },
+  { word: "drop out", type: "phr v", meaning: "bỏ học giữa chừng", unit: "1" },
+  { word: "science", type: "n", meaning: "khoa học", unit: "1" },
+  { word: "scientist", type: "n", meaning: "nhà khoa học", unit: "1" },
+  { word: "scientific", type: "adj", meaning: "thuộc khoa học", unit: "1" },
+  { word: "scientifically", type: "adv", meaning: "một cách khoa học", unit: "1" },
+  { word: "access", type: "v/n", meaning: "truy cập, tiếp cận / đường dẫn, cơ hội tiếp cận", unit: "1" },
+  { word: "accessible to sb", type: "adj", meaning: "có thể tiếp cận đối với ai", unit: "1" },
+  { word: "sales", type: "n", meaning: "doanh số; việc bán hàng", unit: "1" },
+  { word: "post = position", type: "n", meaning: "vị trí việc làm", unit: "1" },
+  { word: "touch-screen", type: "adj", meaning: "cảm ứng (màn hình)", unit: "1" },
+  { word: "cutting-edge", type: "adj", meaning: "tiên tiến nhất, hiện đại nhất", unit: "1" },
+  { word: "style", type: "n", meaning: "phong cách", unit: "1" },
+  { word: "stylish", type: "adj", meaning: "hợp thời trang, phong cách", unit: "1" },
+  { word: "stylishly", type: "adv", meaning: "một cách thời trang, có phong cách", unit: "1" },
+  { word: "in addition", type: "phr", meaning: "ngoài ra, thêm vào đó", unit: "1" },
+  { word: "contribute to sth", type: "v", meaning: "đóng góp vào cái gì", unit: "1" },
+  { word: "contribution", type: "n", meaning: "sự đóng góp", unit: "1" },
+  { word: "full-length", type: "adj", meaning: "có độ dài đầy đủ", unit: "1" },
+  { word: "computer-animated", type: "adj", meaning: "làm bằng kỹ thuật hoạt hình máy tính", unit: "1" },
+  { word: "blockbuster", type: "n", meaning: "bộ phim bom tấn", unit: "1" },
+  { word: "diagnose sb with sth", type: "v", meaning: "chẩn đoán ai bị bệnh gì", unit: "1" },
+  { word: "diagnosis", type: "n", meaning: "sự chẩn đoán", unit: "1" },
+  { word: "pancreatic", type: "adj", meaning: "thuộc tuyến tụy", unit: "1" },
+  { word: "cancer", type: "n", meaning: "bệnh ung thư", unit: "1" },
+  { word: "disease", type: "n", meaning: "căn bệnh", unit: "1" },
+  { word: "pass away", type: "phr v", meaning: "qua đời, từ trần", unit: "1" },
+  { word: "vision", type: "n", meaning: "tầm nhìn; thị lực", unit: "1" },
+  { word: "visionary", type: "adj/n", meaning: "có tầm nhìn xa / người có tầm nhìn", unit: "1" },
+  { word: "ordinary", type: "adj", meaning: "bình thường, thông thường", unit: "1" },
+  { word: "resign", type: "v", meaning: "từ chức, xin thôi việc", unit: "1" },
+  { word: "general", type: "n", meaning: "tướng (quân đội)", unit: "1" },
+  { word: "military", type: "adj/n", meaning: "thuộc quân đội / quân đội", unit: "1" },
+  { word: "Indochinese Communist Party", type: "n", meaning: "Đảng Cộng sản Đông Dương", unit: "1" },
+  { word: "found - founded", type: "v", meaning: "thành lập, sáng lập", unit: "1" },
+  { word: "founder", type: "n", meaning: "người sáng lập", unit: "1" },
+  { word: "foundation", type: "n", meaning: "tổ chức; sự thành lập", unit: "1" },
+  { word: "lead - led - led", type: "v", meaning: "lãnh đạo; dẫn dắt", unit: "1" },
+  { word: "leader", type: "n", meaning: "nhà lãnh đạo", unit: "1" },
+  { word: "leadership", type: "n", meaning: "sự lãnh đạo", unit: "1" },
+  { word: "battle", type: "n", meaning: "trận chiến", unit: "1" },
+  { word: "campaign", type: "n", meaning: "chiến dịch", unit: "1" },
+  { word: "carry out", type: "phr v", meaning: "thực hiện, tiến hành", unit: "1" },
+  { word: "attack", type: "v/n", meaning: "tấn công / cuộc tấn công", unit: "1" },
+  { word: "prison", type: "n", meaning: "nhà tù", unit: "1" },
+  { word: "prisoner", type: "n", meaning: "tù nhân", unit: "1" },
+  { word: "reveal", type: "v", meaning: "tiết lộ", unit: "1" },
+  { word: "dwarf", type: "n", meaning: "người lùn; chú lùn", unit: "1" },
+  { word: "mermaid", type: "n", meaning: "nàng tiên cá", unit: "1" },
+  { word: "beast", type: "n", meaning: "quái vật", unit: "1" },
+  { word: "tourist attraction", type: "n", meaning: "điểm thu hút khách du lịch", unit: "1" },
+  { word: "succeed in", type: "v", meaning: "thành công trong việc gì", unit: "1" },
+  { word: "success", type: "n", meaning: "sự thành công", unit: "1" },
+  { word: "successful", type: "adj", meaning: "thành công", unit: "1" },
+  { word: "successfully", type: "adv", meaning: "một cách thành công", unit: "1" },
+  { word: "career", type: "n", meaning: "sự nghiệp", unit: "1" },
+  { word: "voice", type: "v", meaning: "lồng tiếng", unit: "1" },
+  { word: "industry", type: "n", meaning: "ngành công nghiệp", unit: "1" },
+  { word: "industrial", type: "adj", meaning: "thuộc công nghiệp", unit: "1" },
+  { word: "industrialise", type: "v", meaning: "công nghiệp hóa", unit: "1" },
+  { word: "industrialisation", type: "n", meaning: "sự công nghiệp hóa", unit: "1" },
+  { word: "record", type: "n", meaning: "kỷ lục", unit: "1" },
+  { word: "hold the record", type: "phr", meaning: "giữ kỷ lục", unit: "1" },
+  { word: "break the record", type: "phr", meaning: "phá kỷ lục", unit: "1" },
+  { word: "theme park", type: "n", meaning: "công viên giải trí", unit: "1" },
+  { word: "character", type: "n", meaning: "nhân vật; tính cách", unit: "1" },
+  { word: "interact with", type: "v", meaning: "tương tác với", unit: "1" },
+  { word: "interaction", type: "n", meaning: "sự tương tác", unit: "1" },
+  { word: "interactive", type: "adj", meaning: "có tính tương tác", unit: "1" },
+  { word: "biography", type: "n", meaning: "tiểu sử", unit: "1" },
+  { word: "talent", type: "n", meaning: "tài năng", unit: "1" },
+  { word: "talented", type: "adj", meaning: "có tài năng", unit: "1" },
+  { word: "animation", type: "n", meaning: "hoạt hình", unit: "1" },
+  { word: "animator", type: "n", meaning: "người làm phim hoạt hình", unit: "1" },
+  { word: "produce", type: "v", meaning: "sản xuất", unit: "1" },
+  { word: "product", type: "n", meaning: "sản phẩm", unit: "1" },
+  { word: "production", type: "n", meaning: "sự sản xuất", unit: "1" },
+  { word: "producer", type: "n", meaning: "nhà sản xuất", unit: "1" },
+  { word: "relative", type: "n", meaning: "họ hàng, người thân", unit: "1" },
+  { word: "apart from", type: "prep", meaning: "ngoại trừ", unit: "1" },
+  { word: "film-maker", type: "n", meaning: "nhà làm phim", unit: "1" },
+  { word: "be on top of the world", type: "idiom", meaning: "cực kỳ vui sướng, hạnh phúc", unit: "1" },
+  { word: "be on cloud nine", type: "idiom", meaning: "cực kỳ sung sướng, hạnh phúc", unit: "1" },
+  { word: "be over the moon", type: "idiom", meaning: "vô cùng hạnh phúc, vui sướng", unit: "1" },
+  { word: "poem", type: "n", meaning: "bài thơ", unit: "1" },
+  { word: "poetry", type: "n", meaning: "thơ ca", unit: "1" },
+  { word: "poet", type: "n", meaning: "nhà thơ", unit: "1" },
+  { word: "poetic", type: "adj", meaning: "thuộc thơ ca; giàu chất thơ", unit: "1" },
+  { word: "inspire", type: "v", meaning: "truyền cảm hứng", unit: "1" },
+  { word: "inspiration", type: "n", meaning: "nguồn cảm hứng", unit: "1" },
+  { word: "inspiring", type: "adj", meaning: "truyền cảm hứng", unit: "1" },
+  { word: "inspirational", type: "adj", meaning: "đầy cảm hứng, truyền cảm hứng", unit: "1" },
+  { word: "public speaking", type: "n", meaning: "nghệ thuật nói trước công chúng", unit: "1" },
+  { word: "innovate", type: "v", meaning: "đổi mới", unit: "1" },
+  { word: "innovation", type: "n", meaning: "sự đổi mới", unit: "1" },
+  { word: "innovative", type: "adj", meaning: "đổi mới, sáng tạo", unit: "1" },
+  { word: "please", type: "v", meaning: "làm hài lòng", unit: "1" },
+  { word: "pleased", type: "adj", meaning: "hài lòng", unit: "1" },
+  { word: "pleasant", type: "adj", meaning: "dễ chịu, thoải mái", unit: "1" },
+  { word: "pleasure", type: "n", meaning: "niềm vui", unit: "1" },
+  { word: "rule", type: "v", meaning: "cai trị", unit: "1" },
+  { word: "kingdom", type: "n", meaning: "vương quốc", unit: "1" },
+  { word: "ancient", type: "adj", meaning: "cổ xưa", unit: "1" },
+  { word: "determine", type: "v", meaning: "quyết tâm; xác định", unit: "1" },
+  { word: "determination", type: "n", meaning: "sự quyết tâm", unit: "1" },
+  { word: "determined", type: "adj", meaning: "kiên quyết; quyết tâm", unit: "1" },
+  { word: "educate", type: "v", meaning: "giáo dục", unit: "1" },
+  { word: "education", type: "n", meaning: "sự giáo dục", unit: "1" },
+  { word: "educational", type: "adj", meaning: "mang tính giáo dục", unit: "1" },
+  { word: "educator", type: "n", meaning: "nhà giáo dục", unit: "1" },
+  { word: "expand", type: "v", meaning: "mở rộng", unit: "1" },
+  { word: "expansion", type: "n", meaning: "sự mở rộng", unit: "1" },
+  { word: "Roman Empire", type: "n", meaning: "Đế chế La Mã", unit: "1" },
+  { word: "lengthy", type: "adj", meaning: "dài dòng, kéo dài", unit: "1" },
+  { word: "text", type: "n", meaning: "văn bản", unit: "1" },
+  { word: "defeat", type: "v/n", meaning: "đánh bại / sự thất bại", unit: "1" },
+  { word: "navy", type: "n", meaning: "hải quân", unit: "1" },
+  { word: "refuse + to V", type: "v", meaning: "từ chối", unit: "1" },
+  { word: "minor", type: "adj", meaning: "nhỏ; không quan trọng", unit: "1" },
+  { word: "major", type: "adj", meaning: "lớn; quan trọng", unit: "1" },
+  { word: "princess", type: "n", meaning: "công chúa", unit: "1" },
+  { word: "prince", type: "n", meaning: "hoàng tử", unit: "1" },
+  { word: "ambition", type: "n", meaning: "tham vọng; hoài bão", unit: "1" },
+  { word: "ambitious", type: "adj", meaning: "tham vọng; có chí tiến thủ", unit: "1" },
+  { word: "dedicate to sth", type: "v", meaning: "cống hiến, tận tâm với", unit: "1" },
+  { word: "dedication", type: "n", meaning: "sự cống hiến", unit: "1" },
+  { word: "architecture", type: "n", meaning: "kiến trúc", unit: "1" },
+  { word: "architect", type: "n", meaning: "kiến trúc sư", unit: "1" },
+  { word: "architectural", type: "adj", meaning: "thuộc kiến trúc", unit: "1" },
+  { word: "regret", type: "v/n", meaning: "hối tiếc / sự hối tiếc", unit: "1" },
+  { word: "figure", type: "n", meaning: "nhân vật; con số", unit: "1" },
+  { word: "historical figure", type: "n", meaning: "nhân vật lịch sử", unit: "1" },
+  { word: "illustrate", type: "v", meaning: "minh họa", unit: "1" },
+  { word: "illustration", type: "n", meaning: "sự minh họa", unit: "1" },
+  { word: "comic book", type: "n", meaning: "truyện tranh", unit: "1" },
+
+  // --- UNIT 2: A MULTICULTURAL WORLD ---
+  { word: "culture", type: "n", meaning: "văn hóa", unit: "2" },
+  { word: "cultural", type: "adj", meaning: "thuộc về văn hóa", unit: "2" },
+  { word: "culturally", type: "adv", meaning: "về mặt văn hóa", unit: "2" },
+  { word: "multicultural", type: "adj", meaning: "đa văn hóa", unit: "2" },
+  { word: "nation", type: "n", meaning: "quốc gia", unit: "2" },
+  { word: "national", type: "adj", meaning: "thuộc về dân tộc", unit: "2" },
+  { word: "international", type: "adj", meaning: "mang tính quốc tế", unit: "2" },
+  { word: "locate", type: "v", meaning: "tọa lạc, định vị", unit: "2" },
+  { word: "be located in/on", type: "phr", meaning: "nằm ở, tọa lạc ở", unit: "2" },
+  { word: "location", type: "n", meaning: "vị trí, địa điểm", unit: "2" },
+  { word: "diversity", type: "n", meaning: "sự đa dạng, tính phong phú", unit: "2" },
+  { word: "particular", type: "adj", meaning: "cụ thể, riêng biệt, đặc thù", unit: "2" },
+  { word: "particularly", type: "adv", meaning: "đặc biệt là, cụ thể là", unit: "2" },
+  { word: "taste", type: "v/n", meaning: "nếm / vị", unit: "2" },
+  { word: "tasty = delicious", type: "adj", meaning: "thơm ngon, vừa miệng", unit: "2" },
+  { word: "popular", type: "adj", meaning: "phổ biến, nổi tiếng", unit: "2" },
+  { word: "popularly", type: "adv", meaning: "một cách phổ biến, rộng rãi", unit: "2" },
+  { word: "popularity", type: "n", meaning: "tính phổ biến", unit: "2" },
+  { word: "cuisine", type: "n", meaning: "ẩm thực (phong cách nấu ăn)", unit: "2" },
+  { word: "booth", type: "n", meaning: "lều, rạp, quầy buồng", unit: "2" },
+  { word: "spicy", type: "adj", meaning: "cay, nồng", unit: "2" },
+  { word: "rice cake", type: "n", meaning: "bánh gạo", unit: "2" },
+  { word: "autograph", type: "n", meaning: "chữ ký (người nổi tiếng)", unit: "2" },
+  { word: "serve", type: "v/n", meaning: "phục vụ, phụ trách / cú giao bóng", unit: "2" },
+  { word: "servant", type: "n", meaning: "người phục vụ", unit: "2" },
+  { word: "souvenir", type: "n", meaning: "quà lưu niệm", unit: "2" },
+  { word: "huge", type: "adj", meaning: "rất lớn, khổng lồ", unit: "2" },
+  { word: "tradition", type: "n", meaning: "truyền thống", unit: "2" },
+  { word: "traditional", type: "adj", meaning: "thuộc về/ mang tính truyền thống", unit: "2" },
+  { word: "traditionally", type: "adv", meaning: "theo phong tục, một cách truyền thống", unit: "2" },
+  { word: "tug of war", type: "n", meaning: "trò kéo co", unit: "2" },
+  { word: "bamboo dancing", type: "n", meaning: "nhảy sạp, múa sạp", unit: "2" },
+  { word: "spring roll", type: "n", meaning: "chả giò, nem rán", unit: "2" },
+  { word: "fresh spring roll = summer roll", type: "n", meaning: "gỏi cuốn", unit: "2" },
+  { word: "grill", type: "v", meaning: "nướng", unit: "2" },
+  { word: "meatball", type: "n", meaning: "thịt viên", unit: "2" },
+  { word: "probably", type: "adv", meaning: "có lẽ, chắc hẳn", unit: "2" },
+  { word: "variety", type: "n", meaning: "sự đa dạng, sự phong phú", unit: "2" },
+  { word: "dish", type: "n", meaning: "cái dĩa; món ăn", unit: "2" },
+  { word: "identity", type: "n", meaning: "bản sắc, danh tính cá nhân", unit: "2" },
+  { word: "separate", type: "v/adj", meaning: "tách rời / riêng biệt, độc lập", unit: "2" },
+  { word: "separately", type: "adv", meaning: "tách biệt nhau", unit: "2" },
+  { word: "destroy", type: "v", meaning: "phá hủy, tàn phá, hủy hoại", unit: "2" },
+  { word: "destruction", type: "n", meaning: "sự phá hủy", unit: "2" },
+  { word: "destructive", type: "adj", meaning: "có tính phá hoại, hủy diệt", unit: "2" },
+  { word: "fair", type: "n", meaning: "hội chợ; sự công bằng", unit: "2" },
+  { word: "crowd", type: "n", meaning: "đám đông", unit: "2" },
+  { word: "crowded (with)", type: "adj", meaning: "đông đúc", unit: "2" },
+  { word: "cheer", type: "v", meaning: "cổ vũ, hoan hô", unit: "2" },
+  { word: "appear", type: "v", meaning: "xuất hiện", unit: "2" },
+  { word: "appearance", type: "n", meaning: "sự xuất hiện, ngoại hình", unit: "2" },
+  { word: "stage", type: "n", meaning: "sân khấu, giai đoạn, thời kì", unit: "2" },
+  { word: "origin", type: "n", meaning: "nguồn gốc, xuất xứ", unit: "2" },
+  { word: "original", type: "adj", meaning: "nguyên bản gốc", unit: "2" },
+  { word: "originally", type: "adv", meaning: "ban đầu, lúc đầu", unit: "2" },
+  { word: "originality", type: "n", meaning: "tính độc đáo, sáng tạo", unit: "2" },
+  { word: "originate", type: "v", meaning: "bắt nguồn, khởi đầu", unit: "2" },
+  { word: "trend", type: "n", meaning: "xu hướng, trào lưu", unit: "2" },
+  { word: "trendy", type: "adj", meaning: "hợp thời trang, xu hướng", unit: "2" },
+  { word: "direction", type: "n", meaning: "phương hướng, sự chỉ dẫn", unit: "2" },
+  { word: "characteristic", type: "n", meaning: "đặc tính, đặc điểm", unit: "2" },
+  { word: "believe (in)", type: "v", meaning: "tin tưởng, tin cậy", unit: "2" },
+  { word: "belief (in)", type: "n", meaning: "niềm tin (vào)", unit: "2" },
+  { word: "believable", type: "adj", meaning: "đáng tin", unit: "2" },
+  { word: "feature", type: "n", meaning: "nét đặc trưng, đặc điểm", unit: "2" },
+  { word: "custom", type: "n", meaning: "phong tục", unit: "2" },
+  { word: "mystery", type: "n", meaning: "điều bí ẩn, sự huyền bí", unit: "2" },
+  { word: "mysterious", type: "adj", meaning: "mang tính bí ẩn", unit: "2" },
+  { word: "article", type: "n", meaning: "bài báo", unit: "2" },
+  { word: "occasion", type: "n", meaning: "dịp, cơ hội", unit: "2" },
+  { word: "the Atlantic Ocean", type: "n", meaning: "Đại Tây Dương", unit: "2" },
+  { word: "integration", type: "n", meaning: "sự hội nhập", unit: "2" },
+  { word: "government", type: "n", meaning: "chính phủ", unit: "2" },
+  { word: "globe", type: "n", meaning: "trái đất, quả địa cầu", unit: "2" },
+  { word: "global", type: "adj", meaning: "toàn cầu", unit: "2" },
+  { word: "globally", type: "adv", meaning: "trên toàn cầu", unit: "2" },
+  { word: "globalise", type: "v", meaning: "toàn cầu hóa", unit: "2" },
+  { word: "globalisation", type: "n", meaning: "sự toàn cầu hóa", unit: "2" },
+  { word: "have impact on", type: "phr", meaning: "có tác động, ảnh hưởng đến", unit: "2" },
+  { word: "have influence on", type: "phr", meaning: "có tầm ảnh hưởng đến", unit: "2" },
+  { word: "have effect on", type: "phr", meaning: "có hiệu lực, ảnh hưởng đến", unit: "2" },
+  { word: "increase = rise = go up", type: "v", meaning: "tăng lên", unit: "2" },
+  { word: "decrease = reduce = go down", type: "v", meaning: "giảm xuống", unit: "2" },
+  { word: "As a result", type: "phr", meaning: "Kết quả là", unit: "2" },
+  { word: "food chain", type: "n", meaning: "chuỗi thức ăn", unit: "2" },
+  { word: "a (wide) range of", type: "phr", meaning: "một loạt, nhiều", unit: "2" },
+  { word: "ingredient", type: "n", meaning: "thành phần (nguyên liệu)", unit: "2" },
+  { word: "unique", type: "adj", meaning: "độc nhất, duy nhất", unit: "2" },
+  { word: "for example = for instance", type: "phr", meaning: "ví dụ", unit: "2" },
+  { word: "moreover = furthermore", type: "adv", meaning: "hơn nữa, ngoài ra", unit: "2" },
+  { word: "in addition (to)", type: "phr", meaning: "bên cạnh, thêm vào", unit: "2" },
+  { word: "special", type: "adj", meaning: "đặc biệt, riêng biệt", unit: "2" },
+  { word: "specially", type: "adv", meaning: "một cách đặc biệt, dành riêng", unit: "2" },
+  { word: "specialty = speciality", type: "n", meaning: "đặc sản", unit: "2" },
+  { word: "specialist", type: "n", meaning: "chuyên gia, chuyên viên", unit: "2" },
+  { word: "suit", type: "v", meaning: "làm cho phù hợp", unit: "2" },
+  { word: "suitable for", type: "adj", meaning: "phù hợp, thích hợp với", unit: "2" },
+  { word: "gain", type: "v/n", meaning: "đạt được, thu được / sự gia tăng", unit: "2" },
+  { word: "thanks to", type: "prep", meaning: "nhờ vào", unit: "2" },
+  { word: "captivate", type: "v", meaning: "làm say đắm, quyến rũ", unit: "2" },
+  { word: "cross-cultural", type: "adj", meaning: "liên văn hóa", unit: "2" },
+  { word: "blend", type: "v", meaning: "pha trộn, hòa quyện", unit: "2" },
+  { word: "element", type: "n", meaning: "yếu tố, thành phần, nguyên tố", unit: "2" },
+  { word: "opportunity = chance", type: "n", meaning: "cơ hội", unit: "2" },
+  { word: "rise - rose - risen", type: "v/n", meaning: "tăng lên, mọc lên / sự tăng lên", unit: "2" },
+  { word: "reflect", type: "v", meaning: "phản chiếu, phản ánh", unit: "2" },
+  { word: "keep up with", type: "phr v", meaning: "đuổi kịp, bắt kịp, theo kịp", unit: "2" },
+  { word: "region", type: "n", meaning: "khu vực, lãnh thổ, vùng", unit: "2" },
+  { word: "In conclusion = In brief", type: "phr", meaning: "tóm lại là", unit: "2" },
+  { word: "strengthen", type: "v", meaning: "làm cho mạnh, củng cố", unit: "2" },
+  { word: "worsen", type: "v", meaning: "làm yếu đi, làm xấu đi", unit: "2" },
+  { word: "strength", type: "n", meaning: "sức mạnh", unit: "2" },
+  { word: "appreciate", type: "v", meaning: "đánh giá cao, trân trọng, biết ơn", unit: "2" },
+  { word: "affect", type: "v", meaning: "ảnh hưởng đến cái gì", unit: "2" },
+  { word: "limit", type: "v/n", meaning: "giới hạn, ranh giới", unit: "2" },
+  { word: "limited", type: "adj", meaning: "có giới hạn", unit: "2" },
+  { word: "unlimited", type: "adj", meaning: "không giới hạn", unit: "2" },
+  { word: "limitation", type: "n", meaning: "sự hạn chế, sự giới hạn", unit: "2" },
+  { word: "raw", type: "adj", meaning: "thô, chưa qua chế biến", unit: "2" },
+  { word: "infer (from)", type: "v", meaning: "suy luận, suy ra (từ)", unit: "2" },
+  { word: "exchange", type: "v/n", meaning: "trao đổi / sự trao đổi", unit: "2" },
+  { word: "promote", type: "v", meaning: "thúc đẩy, thăng chức, đề bạt", unit: "2" },
+  { word: "promotion", type: "n", meaning: "sự thúc đẩy, sự thăng chức", unit: "2" },
+  { word: "purpose", type: "n", meaning: "mục đích", unit: "2" },
+  { word: "food stall", type: "n", meaning: "quầy thức ăn, gian hàng thực phẩm", unit: "2" },
+  { word: "involve", type: "v", meaning: "bao gồm", unit: "2" },
+  { word: "celebrate", type: "v", meaning: "tổ chức (lễ hội, kỷ niệm)", unit: "2" },
+  { word: "celebration", type: "n", meaning: "sự tổ chức", unit: "2" },
+  { word: "lantern", type: "n", meaning: "lồng đèn, đèn xách", unit: "2" },
+  { word: "haunted", type: "adj", meaning: "bị ma ám", unit: "2" },
+  { word: "alarm", type: "v/n", meaning: "báo động, cảnh báo / sự báo động", unit: "2" },
+  { word: "prepare (for)", type: "v", meaning: "chuẩn bị", unit: "2" },
+  { word: "preparation", type: "n", meaning: "sự chuẩn bị", unit: "2" },
+  { word: "annual", type: "adj", meaning: "thường niên, hàng năm", unit: "2" },
+  { word: "annually", type: "adv", meaning: "hàng năm, mỗi năm", unit: "2" },
+  { word: "root", type: "n", meaning: "nền tảng, nguồn gốc, rễ cây", unit: "2" },
+  { word: "Celt", type: "n", meaning: "Người Celt (dân tộc Ấn-Âu cổ)", unit: "2" },
+  { word: "Celtic", type: "adj", meaning: "thuộc về người Celt", unit: "2" },
+  { word: "importance", type: "n", meaning: "tầm quan trọng", unit: "2" },
+  { word: "encourage", type: "v", meaning: "động viên, cổ vũ", unit: "2" },
+  { word: "encouragement", type: "n", meaning: "sự/lời cổ vũ", unit: "2" },
+  { word: "extracurricular", type: "adj", meaning: "ngoại khóa", unit: "2" },
+  { word: "ignore", type: "v", meaning: "phớt lờ, lờ đi", unit: "2" },
+  { word: "ignorance", type: "n", meaning: "sự thiếu hiểu biết, dốt nát", unit: "2" },
+  { word: "ignorant", type: "adj", meaning: "thiếu hiểu biết, dốt nát", unit: "2" },
+  { word: "pocket money", type: "n", meaning: "tiền tiêu vặt", unit: "2" },
+  { word: "firmly", type: "adv", meaning: "một cách vững chắc, kiên quyết", unit: "2" },
+  { word: "president", type: "n", meaning: "tổng thống, chủ tịch", unit: "2" },
+  { word: "represent", type: "v", meaning: "đại diện, thay mặt, tượng trưng", unit: "2" },
+  { word: "representation", type: "n", meaning: "sự đại diện, sự thay mặt", unit: "2" },
+  { word: "representative", type: "n/adj", meaning: "người đại diện / tiêu biểu", unit: "2" },
+  { word: "formal", type: "adj", meaning: "trang trọng", unit: "2" },
+  { word: "informal", type: "adj", meaning: "không trang trọng, thân mật", unit: "2" },
+  { word: "confuse", type: "v", meaning: "làm lộn xộn, làm bối rối", unit: "2" },
+  { word: "confusion", type: "n", meaning: "sự lộn xộn, bối rối", unit: "2" },
+  { word: "confused", type: "adj", meaning: "cảm thấy bối rối, mơ hồ", unit: "2" },
+  { word: "confusing", type: "adj", meaning: "khó hiểu, gây nhầm lẫn", unit: "2" },
+  { word: "anxiety", type: "n", meaning: "sự lo lắng, băn khoăn, khắc khoải", unit: "2" },
+  { word: "anxious", type: "adj", meaning: "lo lắng, băn khoăn, lo âu", unit: "2" },
+  { word: "barrier", type: "n", meaning: "rào cản, chướng ngại vật", unit: "2" },
+  { word: "familiar", type: "adj", meaning: "quen thuộc, thân thuộc", unit: "2" },
+  { word: "unfamiliar", type: "adj", meaning: "xa lạ, không quen thuộc", unit: "2" },
+  { word: "climate", type: "n", meaning: "khí hậu", unit: "2" },
+  { word: "strange", type: "adj", meaning: "kỳ lạ, khác thường, xa lạ", unit: "2" },
+  { word: "tip", type: "v/n", meaning: "cho tiền boa / tiền boa", unit: "2" },
+  { word: "tipping", type: "n", meaning: "việc cho tiền boa", unit: "2" },
+  { word: "contrast", type: "n", meaning: "sự tương phản, sự trái lại", unit: "2" },
+  { word: "by contrast", type: "phr", meaning: "ngược lại, trái lại", unit: "2" },
+  { word: "insult", type: "v/n", meaning: "sỉ nhục, lăng mạ / lời sỉ nhục", unit: "2" },
+  { word: "insulting", type: "adj", meaning: "có tính sỉ nhục, xấc xược", unit: "2" },
+  { word: "situation", type: "n", meaning: "tình huống", unit: "2" },
+  { word: "focus on", type: "v", meaning: "tập trung vào", unit: "2" },
+  { word: "overcome", type: "v", meaning: "vượt qua, khắc phục (khó khăn)", unit: "2" },
+  { word: "aspect", type: "n", meaning: "khía cạnh, phương diện", unit: "2" },
+  { word: "growth", type: "n", meaning: "sự lớn lên, sự tăng trưởng", unit: "2" },
+  { word: "research", type: "v/n", meaning: "nghiên cứu / sự nghiên cứu", unit: "2" },
+  { word: "include", type: "v", meaning: "bao gồm", unit: "2" },
+  { word: "ban = prohibit = forbid", type: "v/n", meaning: "cấm / lệnh cấm", unit: "2" },
+  { word: "find out", type: "phr v", meaning: "tìm ra, phát hiện ra", unit: "2" },
+  { word: "chewing gum", type: "n", meaning: "kẹo cao su", unit: "2" },
+  { word: "illegal", type: "adj", meaning: "bất hợp pháp", unit: "2" },
+  { word: "legal", type: "adj", meaning: "hợp pháp", unit: "2" },
+  { word: "law", type: "n", meaning: "luật pháp", unit: "2" },
+  { word: "serious", type: "adj", meaning: "nghiêm trọng, nghiêm túc", unit: "2" },
+  { word: "seriously", type: "adv", meaning: "cực kỳ nghiêm trọng, đứng đắn", unit: "2" },
+  { word: "foreign", type: "adj", meaning: "nước ngoài", unit: "2" },
+  { word: "foreigner", type: "n", meaning: "người nước ngoài", unit: "2" },
+  { word: "announce", type: "v", meaning: "công bố, thông báo, tuyên bố", unit: "2" },
+  { word: "announcement", type: "n", meaning: "lời thông báo, sự công bố", unit: "2" },
+  { word: "applicant", type: "n", meaning: "người xin việc, ứng viên nộp đơn", unit: "2" },
+  { word: "preserve", type: "v", meaning: "giữ gìn, bảo tồn", unit: "2" },
+  { word: "preservation", type: "n", meaning: "sự giữ gìn, sự bảo tồn", unit: "2" },
+  { word: "Buddhist", type: "n/adj", meaning: "tín đồ Phật giáo / thuộc về Phật giáo", unit: "2" },
+  { word: "Buddhism", type: "n", meaning: "Phật giáo", unit: "2" },
+
+  // --- UNIT 3: GREEN LIVING ---
+  { word: "deal with", type: "phr v", meaning: "giải quyết, xử lý, đối phó", unit: "3" },
+  { word: "in advance", type: "phr", meaning: "trước, sớm hơn", unit: "3" },
+  { word: "compete", type: "v", meaning: "cạnh tranh, thi đấu", unit: "3" },
+  { word: "competitive", type: "adj", meaning: "có tính cạnh tranh", unit: "3" },
+  { word: "competition", type: "n", meaning: "cuộc thi, sự cạnh tranh", unit: "3" },
+  { word: "competitor", type: "n", meaning: "người cạnh tranh, đối thủ", unit: "3" },
+  { word: "ecotour", type: "n", meaning: "du lịch sinh thái", unit: "3" },
+  { word: "judge", type: "v/n", meaning: "đánh giá, chấm điểm / giám khảo", unit: "3" },
+  { word: "judgement / judgment", type: "n", meaning: "sự đánh giá, nhận định", unit: "3" },
+  { word: "judgemental", type: "adj", meaning: "hay phán xét người khác", unit: "3" },
+  { word: "raise", type: "v", meaning: "nâng lên, làm tăng", unit: "3" },
+  { word: "awareness", type: "n", meaning: "nhận thức", unit: "3" },
+  { word: "raise someone's awareness", type: "phr", meaning: "nâng cao nhận thức", unit: "3" },
+  { word: "carbon footprint", type: "n", meaning: "dấu chân carbon (lượng khí phát thải)", unit: "3" },
+  { word: "resource", type: "n", meaning: "tài nguyên, nguồn lực", unit: "3" },
+  { word: "effective = efficacious", type: "adj", meaning: "hiệu quả", unit: "3" },
+  { word: "ineffective", type: "adj", meaning: "không hiệu quả", unit: "3" },
+  { word: "effectiveness", type: "n", meaning: "tính hiệu quả", unit: "3" },
+  { word: "clean-up", type: "n", meaning: "việc dọn dẹp, làm sạch", unit: "3" },
+  { word: "clean up", type: "phr v", meaning: "dọn dẹp, làm sạch", unit: "3" },
+  { word: "frequent", type: "adj", meaning: "thường xuyên", unit: "3" },
+  { word: "frequently", type: "adv", meaning: "thường xuyên, một cách đều đặn", unit: "3" },
+  { word: "behave", type: "v", meaning: "cư xử", unit: "3" },
+  { word: "behaviour", type: "n", meaning: "hành vi, cách cư xử", unit: "3" },
+  { word: "eco-friendly", type: "adj", meaning: "thân thiện với môi trường", unit: "3" },
+  { word: "notice", type: "v/n", meaning: "nhận thấy / thông báo, sự chú ý", unit: "3" },
+  { word: "noticeable", type: "adj", meaning: "dễ nhận thấy", unit: "3" },
+  { word: "noticeably", type: "adv", meaning: "1 cách rõ rệt", unit: "3" },
+  { word: "unnoticed", type: "adj", meaning: "không được chú ý", unit: "3" },
+  { word: "throw away", type: "phr v", meaning: "vứt bỏ, bỏ đi", unit: "3" },
+  { word: "decompose", type: "v", meaning: "phân hủy (hữu cơ)", unit: "3" },
+  { word: "decomposition", type: "n", meaning: "sự phân hủy", unit: "3" },
+  { word: "certain = sure", type: "adj", meaning: "chắc chắn", unit: "3" },
+  { word: "uncertain", type: "adj", meaning: "không chắc chắn", unit: "3" },
+  { word: "certainty", type: "n", meaning: "sự chắc chắn", unit: "3" },
+  { word: "uncertainty", type: "n", meaning: "sự không chắc chắn", unit: "3" },
+  { word: "jug", type: "n", meaning: "bình có quai và miệng để rót", unit: "3" },
+  { word: "refill", type: "v/n", meaning: "đổ đầy lại, nạp lại", unit: "3" },
+  { word: "refillable", type: "adj", meaning: "có thể đổ đầy lại, nạp thêm", unit: "3" },
+  { word: "reuse", type: "v/n", meaning: "tái sử dụng / việc tái sử dụng", unit: "3" },
+  { word: "reusable", type: "adj", meaning: "có thể tái sử dụng", unit: "3" },
+  { word: "reduce", type: "v", meaning: "giảm bớt", unit: "3" },
+  { word: "reduction", type: "n", meaning: "sự cắt giảm, sự giảm bớt", unit: "3" },
+  { word: "air-conditioner", type: "n", meaning: "máy điều hoà không khí", unit: "3" },
+  { word: "air-conditioning", type: "n", meaning: "hệ thống điều hoà không khí", unit: "3" },
+  { word: "air-conditioned", type: "adj", meaning: "được trang bị điều hòa", unit: "3" },
+  { word: "rush out", type: "phr v", meaning: "vội vàng chạy ra ngoài", unit: "3" },
+  { word: "waste", type: "n", meaning: "rác thải, sự lãng phí", unit: "3" },
+  { word: "waste time/money + Ving", type: "phr", meaning: "lãng phí thời gian/tiền bạc", unit: "3" },
+  { word: "single-use", type: "adj", meaning: "dùng một lần rồi bỏ", unit: "3" },
+  { word: "remind", type: "v", meaning: "nhắc nhở", unit: "3" },
+  { word: "reminder", type: "n", meaning: "lời nhắc", unit: "3" },
+  { word: "gradual", type: "adj", meaning: "dần dần, từ từ", unit: "3" },
+  { word: "gradually", type: "adv", meaning: "một cách từ từ, dần dần", unit: "3" },
+  { word: "measure", type: "v/n", meaning: "đo lường / biện pháp", unit: "3" },
+  { word: "measurement", type: "n", meaning: "sự đo lường, số liệu đo", unit: "3" },
+  { word: "landfill", type: "n", meaning: "bãi chôn lấp rác thải", unit: "3" },
+  { word: "bury", type: "v", meaning: "chôn, vùi lấp", unit: "3" },
+  { word: "burial", type: "n", meaning: "sự chôn cất", unit: "3" },
+  { word: "surface", type: "n/v", meaning: "bề mặt / nổi lên bề mặt", unit: "3" },
+  { word: "wrap", type: "v/n", meaning: "bọc, gói / màng/lớp bọc", unit: "3" },
+  { word: "bowl", type: "n", meaning: "cái tô", unit: "3" },
+  { word: "package", type: "n", meaning: "gói hàng", unit: "3" },
+  { word: "packaging", type: "n", meaning: "bao bì", unit: "3" },
+  { word: "contain", type: "v", meaning: "chứa, đựng", unit: "3" },
+  { word: "container", type: "n", meaning: "thùng chứa", unit: "3" },
+  { word: "leak", type: "v/n", meaning: "rò rỉ, bị rò rỉ / sự rò rỉ", unit: "3" },
+  { word: "tap", type: "n", meaning: "vòi nước", unit: "3" },
+  { word: "necessary", type: "adj", meaning: "cần thiết", unit: "3" },
+  { word: "unnecessary", type: "adj", meaning: "không cần thiết", unit: "3" },
+  { word: "necessity", type: "n", meaning: "sự cần thiết", unit: "3" },
+  { word: "recycle", type: "v", meaning: "tái chế", unit: "3" },
+  { word: "recyclable", type: "adj", meaning: "có thể tái chế", unit: "3" },
+  { word: "recycling", type: "n", meaning: "sự tái chế", unit: "3" },
+  { word: "release", type: "v", meaning: "thả, phóng thích", unit: "3" },
+  { word: "harm", type: "v/n", meaning: "gây hại, làm hại / tác hại", unit: "3" },
+  { word: "harmful to", type: "adj", meaning: "có hại", unit: "3" },
+  { word: "harmless to", type: "adj", meaning: "vô hại", unit: "3" },
+  { word: "depend on", type: "v", meaning: "phụ thuộc vào", unit: "3" },
+  { word: "dependence", type: "n", meaning: "sự phụ thuộc", unit: "3" },
+  { word: "independence", type: "n", meaning: "sự độc lập, nền độc lập", unit: "3" },
+  { word: "dependent on", type: "adj", meaning: "dựa vào, phụ thuộc vào", unit: "3" },
+  { word: "independent of", type: "adj", meaning: "độc lập", unit: "3" },
+  { word: "pollute", type: "v", meaning: "gây ô nhiễm", unit: "3" },
+  { word: "polluted", type: "adj", meaning: "bị ô nhiễm", unit: "3" },
+  { word: "pollution", type: "n", meaning: "sự ô nhiễm", unit: "3" },
+  { word: "pollutant", type: "n", meaning: "chất gây ô nhiễm", unit: "3" },
+  { word: "private", type: "adj", meaning: "riêng tư, cá nhân, tư nhân", unit: "3" },
+  { word: "privacy", type: "n", meaning: "sự riêng tư, quyền riêng tư", unit: "3" },
+  { word: "vehicle", type: "n", meaning: "phương tiện giao thông, xe cộ", unit: "3" },
+  { word: "exist", type: "v", meaning: "tồn tại", unit: "3" },
+  { word: "existence", type: "n", meaning: "sự tồn tại", unit: "3" },
+  { word: "existent", type: "adj", meaning: "có tồn tại, hiện hữu", unit: "3" },
+  { word: "existing", type: "adj", meaning: "đang hiện hành, hiện có", unit: "3" },
+  { word: "convenient", type: "adj", meaning: "tiện lợi", unit: "3" },
+  { word: "convenience", type: "n", meaning: "sự tiện lợi", unit: "3" },
+  { word: "cardboard", type: "n", meaning: "bìa cứng, giấy các-tông", unit: "3" },
+  { word: "leftover", type: "n", meaning: "thức ăn thừa", unit: "3" },
+  { word: "contaminate", type: "v", meaning: "làm ô nhiễm", unit: "3" },
+  { word: "contaminated", type: "adj", meaning: "bị ô nhiễm", unit: "3" },
+  { word: "contamination", type: "n", meaning: "sự ô nhiễm", unit: "3" },
+  { word: "rinse", type: "v/n", meaning: "rửa sạch / sự rửa", unit: "3" },
+  { word: "rinse out", type: "phr v", meaning: "tráng/ rửa sạch bên trong", unit: "3" },
+  { word: "get rid of", type: "phr v", meaning: "loại bỏ", unit: "3" },
+  { word: "vend", type: "v", meaning: "bán hàng", unit: "3" },
+  { word: "vending machine", type: "n", meaning: "máy bán hàng tự động", unit: "3" },
+  { word: "drinking fountain", type: "n", meaning: "vòi nước uống công cộng", unit: "3" },
+  { word: "portion", type: "v/n", meaning: "chia thành từng phần / phần chia", unit: "3" },
+  { word: "made of", type: "phr", meaning: "làm từ (vật liệu vẫn giữ nguyên bản chất)", unit: "3" },
+  { word: "made from", type: "phr", meaning: "làm từ (vật liệu đã biến đổi)", unit: "3" },
+  { word: "cap", type: "n", meaning: "nắp chai, nắp đậy", unit: "3" },
+  { word: "instead of", type: "prep", meaning: "thay vì", unit: "3" },
+  { word: "instead", type: "adv", meaning: "thay vào đó", unit: "3" },
+  { word: "properly", type: "adv", meaning: "đúng cách, phù hợp", unit: "3" },
+  { word: "facility", type: "n", meaning: "cơ sở vật chất", unit: "3" },
+  { word: "sort", type: "v/n", meaning: "phân loại / loại, kiểu", unit: "3" },
+  { word: "compost", type: "v/n", meaning: "ủ thành phân hữu cơ / phân hữu cơ", unit: "3" },
+  { word: "compostable", type: "adj", meaning: "có thể ủ làm phân hữu cơ", unit: "3" },
+  { word: "print out", type: "phr v", meaning: "in ra", unit: "3" },
+  { word: "leaflet", type: "n", meaning: "tờ rơi", unit: "3" },
+  { word: "pile", type: "v/n", meaning: "chất đống, xếp chồng / đống", unit: "3" },
+  { word: "mix", type: "v", meaning: "trộn, pha", unit: "3" },
+  { word: "mixture", type: "n", meaning: "hỗn hợp", unit: "3" },
+  { word: "layer", type: "v/n", meaning: "xếp thành từng lớp / lớp, tầng", unit: "3" },
+  { word: "additional", type: "adj", meaning: "bổ sung, thêm", unit: "3" },
+  { word: "additionally", type: "adv", meaning: "ngoài ra", unit: "3" },
+  { word: "fertilize", type: "v", meaning: "bón phân", unit: "3" },
+  { word: "fertilizer", type: "n", meaning: "phân bón", unit: "3" },
+  { word: "art and craft", type: "n", meaning: "thủ công mỹ nghệ", unit: "3" },
+  { word: "pot", type: "v/n", meaning: "trồng vào chậu / chậu, bình", unit: "3" },
+  { word: "sensor", type: "n", meaning: "cảm biến", unit: "3" },
+  { word: "pick sth/so up", type: "phr v", meaning: "nhặt, thu gom, đón ai", unit: "3" },
+  { word: "session", type: "n", meaning: "buổi (học, thảo luận, làm việc)", unit: "3" },
+  { word: "make use of", type: "phr v", meaning: "tận dụng", unit: "3" },
+  { word: "bird feeder", type: "n", meaning: "khay đựng thức ăn cho chim", unit: "3" },
+  { word: "put sth into practice", type: "idiom", meaning: "đưa vào thực tế, áp dụng vào thực hành", unit: "3" },
+  { word: "propose", type: "v", meaning: "đề xuất, đưa ra ý kiến, cầu hôn", unit: "3" },
+  { word: "proposal", type: "n", meaning: "lời đề nghị", unit: "3" },
+  { word: "proposer", type: "n", meaning: "người đề xuất", unit: "3" },
+  { word: "predict", type: "v", meaning: "tiên đoán", unit: "3" },
+  { word: "prediction", type: "n", meaning: "sự tiên đoán", unit: "3" },
+  { word: "in the long run", type: "phr", meaning: "về lâu dài, xét về lâu dài", unit: "3" },
+  { word: "sky lantern", type: "n", meaning: "đèn trời", unit: "3" },
+  { word: "spectacular = breathtaking", type: "adj", meaning: "ngoạn mục, hùng vĩ", unit: "3" },
+  { word: "sight", type: "v/n", meaning: "nhìn thấy, ngắm / cảnh đẹp, thắng cảnh", unit: "3" },
+  { word: "fly - flew - flown", type: "v", meaning: "bay", unit: "3" },
+  { word: "frame", type: "v/n", meaning: "đóng khung / khung, khuôn khổ", unit: "3" },
+  { word: "wildfire", type: "n", meaning: "cháy rừng, đám cháy rừng", unit: "3" },
+  { word: "display = show = exhibition", type: "n", meaning: "màn trình diễn, sự trưng bày", unit: "3" },
+  { word: "chemical", type: "adj/n", meaning: "thuộc về hóa chất / hóa chất", unit: "3" },
+
+  // --- REVIEW 1 ---
+  { word: "energy-efficient", type: "adj", meaning: "tiết kiệm năng lượng, sử dụng hiệu quả", unit: "R1" },
+  { word: "liver", type: "n", meaning: "lá gan", unit: "R1" },
+  { word: "ethnic minority", type: "n", meaning: "dân tộc thiểu số", unit: "R1" },
+  { word: "explore", type: "v", meaning: "khám phá, thám hiểm, tìm hiểu", unit: "R1" },
+  { word: "exploration", type: "n", meaning: "sự khám phá, sự thám hiểm", unit: "R1" },
+  { word: "infect", type: "v", meaning: "lây nhiễm, truyền bệnh", unit: "R1" },
+  { word: "infection", type: "n", meaning: "sự nhiễm bệnh, sự lây nhiễm", unit: "R1" },
+  { word: "infectious", type: "adj", meaning: "truyền nhiễm, dễ lây", unit: "R1" },
+  { word: "bacterium (pl: bacteria)", type: "n", meaning: "vi khuẩn / các vi khuẩn", unit: "R1" },
+  { word: "bacterial", type: "adj", meaning: "thuộc về vi khuẩn", unit: "R1" },
+  { word: "laboratory = lab", type: "n", meaning: "phòng thí nghiệm", unit: "R1" },
+  { word: "fund", type: "n/v", meaning: "quỹ, khoản tài trợ / tài trợ, cấp vốn", unit: "R1" },
+  { word: "rubber tree", type: "n", meaning: "cây cao su", unit: "R1" },
+  { word: "malaria", type: "n", meaning: "bệnh sốt rét", unit: "R1" },
+  { word: "remarkable", type: "adj", meaning: "đáng chú ý, đáng kinh ngạc, nổi bật", unit: "R1" },
+  { word: "bleed - bled - bled", type: "v", meaning: "chảy máu", unit: "R1" },
+  { word: "bleeding", type: "n", meaning: "sự chảy máu", unit: "R1" },
+  { word: "blood", type: "n", meaning: "máu", unit: "R1" }
+];
+
+// CẬP NHẬT SỐ LƯỢNG LÊN TIÊU ĐỀ
+document.getElementById('totalVocabCountHeader').innerText = `Đã nạp đầy đủ ${FULL_VOCAB.length} từ vựng từ sách!`;
+
+let quizQueue = [];
+let qIndex = 0;
+let numCorrect = 0;
+let numWrong = 0;
+let mistakeArr = [];
+let quizMode = "";
+let currentCorrect = "";
+let cardRevealed = false;
+
+document.addEventListener("DOMContentLoaded", function() {
+  const startBtn = document.getElementById("startBtn");
+  if (startBtn) {
+    startBtn.onclick = beginQuiz;
+  }
+});
+
+function beginQuiz() {
+  const selectedUnit = document.getElementById("unitSelect").value;
+  quizMode = document.getElementById("modeSelect").value;
+
+  let pool = FULL_VOCAB;
+  if (selectedUnit !== "ALL") {
+    pool = FULL_VOCAB.filter(item => item.unit === selectedUnit);
+  }
+
+  quizQueue = shuffleArray([...pool]);
+  qIndex = 0;
+  numCorrect = 0;
+  numWrong = 0;
+  mistakeArr = [];
+
+  document.getElementById("setupView").style.display = "none";
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("quizView").style.display = "block";
+
+  loadQuestion();
+}
+
+function loadQuestion() {
+  const item = quizQueue[qIndex];
+  const total = quizQueue.length;
+
+  document.getElementById("badgeUnit").innerText = item.unit === "R1" ? "Review 1" : "Unit " + item.unit;
+  document.getElementById("statProgress").innerText = (qIndex + 1) + " / " + total;
+  document.getElementById("statScore").innerText = `Đúng: ${numCorrect} | Sai: ${numWrong}`;
+  document.getElementById("progressFill").style.width = ((qIndex / total) * 100) + "%";
+  document.getElementById("nextBtn").style.display = "none";
+
+  const isFlashcard = (quizMode === "flashcard");
+  document.getElementById("multipleChoiceArea").style.display = isFlashcard ? "none" : "flex";
+  document.getElementById("flashcardArea").style.display = isFlashcard ? "block" : "none";
+
+  cardRevealed = false;
+
+  if (isFlashcard) {
+    document.getElementById("displayWord").innerText = item.word;
+    document.getElementById("displayType").innerText = "(" + item.type + ")";
+    document.getElementById("displayHint").innerText = "👉 Bấm vào khung này để lật xem đáp án nghĩa";
+  } else {
+    const isEngToVie = (quizMode === "mc_eng_to_vie");
+    document.getElementById("displayWord").innerText = isEngToVie ? item.word : item.meaning;
+    document.getElementById("displayType").innerText = "(" + item.type + ")";
+    document.getElementById("displayHint").innerText = isEngToVie ? "Chọn nghĩa Tiếng Việt tương ứng:" : "Chọn từ Tiếng Anh tương ứng:";
+
+    currentCorrect = isEngToVie ? item.meaning : item.word;
+    const targetProp = isEngToVie ? "meaning" : "word";
+
+    // 4 ĐÁP ÁN ĐỘC NHẤT KHÔNG TRÙNG
+    const others = shuffleArray(FULL_VOCAB.filter(x => x[targetProp] !== currentCorrect));
+    const setOfOpts = new Set([currentCorrect]);
+    for (let o of others) {
+      setOfOpts.add(o[targetProp]);
+      if (setOfOpts.size === 4) break;
+    }
+
+    const finalOpts = shuffleArray(Array.from(setOfOpts));
+    const container = document.getElementById("multipleChoiceArea");
+    container.innerHTML = "";
+
+    const labels = ["A", "B", "C", "D"];
+    finalOpts.forEach((txt, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "opt-btn";
+      btn.innerHTML = `<span style="color:#818cf8; font-weight:700;">${labels[i]}.</span> <span>${txt}</span>`;
+      btn.onclick = function() { checkAnswer(btn, txt, item); };
+      container.appendChild(btn);
+    });
+  }
+}
+
+function handleCardClick() {
+  if (quizMode !== "flashcard") return;
+  const item = quizQueue[qIndex];
+  cardRevealed = !cardRevealed;
+
+  if (cardRevealed) {
+    document.getElementById("displayWord").innerText = item.meaning;
+    document.getElementById("displayType").innerText = item.word + " (" + item.type + ")";
+    document.getElementById("displayHint").innerText = "Bạn đã tự nhớ đúng hay quên? Bấm nút bên dưới:";
+  } else {
+    document.getElementById("displayWord").innerText = item.word;
+    document.getElementById("displayType").innerText = "(" + item.type + ")";
+    document.getElementById("displayHint").innerText = "👉 Bấm vào khung này để lật xem đáp án nghĩa";
+  }
+}
+
+function checkAnswer(btn, selectedText, item) {
+  const allBtns = document.querySelectorAll(".opt-btn");
+  allBtns.forEach(b => b.disabled = true);
+
+  if (selectedText === currentCorrect) {
+    btn.classList.add("correct");
+    numCorrect++;
+  } else {
+    btn.classList.add("wrong");
+    numWrong++;
+    if (!mistakeArr.some(m => m.word === item.word)) {
+      mistakeArr.push(item);
+    }
+    allBtns.forEach(b => {
+      if (b.innerText.includes(currentCorrect)) b.classList.add("correct");
+    });
+  }
+
+  document.getElementById("statScore").innerText = `Đúng: ${numCorrect} | Sai: ${numWrong}`;
+  document.getElementById("nextBtn").style.display = "block";
+}
+
+function evalFlashcard(isKnown) {
+  const item = quizQueue[qIndex];
+  if (isKnown) {
+    numCorrect++;
+  } else {
+    numWrong++;
+    if (!mistakeArr.some(m => m.word === item.word)) {
+      mistakeArr.push(item);
+    }
+  }
+  goToNext();
+}
+
+function goToNext() {
+  qIndex++;
+  if (qIndex < quizQueue.length) {
+    loadQuestion();
+  } else {
+    finishQuiz();
+  }
+}
+
+function finishQuiz() {
+  document.getElementById("quizView").style.display = "none";
+  document.getElementById("resultView").style.display = "block";
+
+  const total = quizQueue.length;
+  const pct = Math.round((numCorrect / total) * 100);
+  document.getElementById("scorePercent").innerText = pct + "%";
+  document.getElementById("resultText").innerText = `Bạn trả lời đúng ${numCorrect} / ${total} câu (Làm sai: ${numWrong} câu)`;
+
+  const mistakeSection = document.getElementById("mistakeSection");
+  const listEl = document.getElementById("mistakeList");
+  listEl.innerHTML = "";
+
+  if (mistakeArr.length > 0) {
+    mistakeSection.style.display = "block";
+    mistakeArr.forEach(m => {
+      const row = document.createElement("div");
+      row.className = "mistake-item";
+      row.innerHTML = `<b>${m.word}</b> <span style="color:#86efac;">${m.meaning}</span>`;
+      listEl.appendChild(row);
+    });
+  } else {
+    mistakeSection.style.display = "none";
+  }
+}
+
+function retryMistakes() {
+  quizQueue = shuffleArray([...mistakeArr]);
+  qIndex = 0;
+  numCorrect = 0;
+  numWrong = 0;
+  mistakeArr = [];
+
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("quizView").style.display = "block";
+  loadQuestion();
+}
+
+function backToMenu() {
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("quizView").style.display = "none";
+  document.getElementById("setupView").style.display = "block";
+}
+
+function shuffleArray(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+</script>
+</body>
+</html>
