@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ôn Tập Từ Vựng Tiếng Anh 12 (Unit 1 - 3)</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-hover: #4338ca;
+      --success: #16a34a;
+      --danger: #dc2626;
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: system-ui, -apple-system, sans-serif; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+    .app-box {
+      width: 100%;
+      max-width: 650px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 24px;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    }
+    header { text-align: center; margin-bottom: 20px; }
+    header h1 { font-size: 1.5rem; color: #818cf8; margin-bottom: 6px; }
+    header p { font-size: 0.9rem; color: var(--text-muted); }
+
+    /* MENU CHỌN */
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; text-align: left; }
+    label { font-size: 0.85rem; font-weight: 600; color: #cbd5e1; }
+    select {
+      padding: 12px 14px;
+      border-radius: 10px;
+      background: #0f172a;
+      color: white;
+      border: 1px solid var(--border);
+      font-size: 0.95rem;
+      outline: none;
+    }
+    .btn-main {
+      width: 100%;
+      padding: 15px;
+      border-radius: 12px;
+      border: none;
+      background: var(--primary);
+      color: white;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .btn-main:active { transform: scale(0.98); }
+
+    /* GIAO DIỆN HỌC */
+    .top-stats {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+    .progress-bar {
+      height: 8px;
+      width: 100%;
+      background: #334155;
+      border-radius: 99px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #818cf8;
+      transition: width 0.25s;
+    }
+
+    /* KHUNG TỪ VỰNG */
+    .vocab-card {
+      background: #0f172a;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      margin-bottom: 20px;
+      cursor: pointer;
+    }
+    .vocab-word { font-size: 1.8rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .vocab-type { display: inline-block; font-size: 0.85rem; color: #818cf8; background: rgba(129, 140, 248, 0.15); padding: 2px 10px; border-radius: 6px; }
+    .hint-sub { font-size: 0.8rem; color: var(--text-muted); margin-top: 10px; }
+
+    /* CÁC NÚT ĐÁP ÁN TRẮC NGHIỆM */
+    .options-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+    .opt-btn {
+      padding: 14px 18px;
+      border-radius: 12px;
+      background: #1e293b;
+      border: 1.5px solid var(--border);
+      color: #f1f5f9;
+      font-size: 0.95rem;
+      font-weight: 600;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      transition: 0.15s;
+    }
+    .opt-btn:hover:not(:disabled) { border-color: var(--primary); background: #28334e; }
+    .opt-btn.correct { background: rgba(22, 163, 74, 0.2) !important; border-color: var(--success) !important; color: #4ade80 !important; }
+    .opt-btn.wrong { background: rgba(220, 38, 38, 0.2) !important; border-color: var(--danger) !important; color: #f87171 !important; }
+
+    /* CÁC NÚT CHẾ ĐỘ PHẢN XẠ */
+    .flashcard-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .btn-fc { padding: 14px; border-radius: 12px; border: none; font-weight: 700; cursor: pointer; }
+    .btn-fc-wrong { background: rgba(220, 38, 38, 0.2); border: 1px solid var(--danger); color: #fca5a5; }
+    .btn-fc-correct { background: rgba(22, 163, 74, 0.2); border: 1px solid var(--success); color: #86efac; }
+
+    .btn-next {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    /* KẾT QUẢ */
+    .result-box { text-align: center; }
+    .result-score { font-size: 2.5rem; font-weight: 800; color: #818cf8; margin: 10px 0; }
+    .mistake-list { max-height: 260px; overflow-y: auto; text-align: left; display: flex; flex-direction: column; gap: 8px; margin: 16px 0; }
+    .mistake-item { background: #0f172a; border-left: 4px solid var(--danger); padding: 10px 14px; border-radius: 8px; display: flex; justify-content: space-between; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+
+<div class="app-box">
+  <header>
+    <h1>ÔN TỪ VỰNG TIẾNG ANH 12</h1>
+    <p>Unit 1 - Unit 2 - Unit 3 & Review 1</p>
+  </header>
+
+  <!-- MÀN HÌNH CHỌN BÀI -->
+  <div id="setupView">
+    <div class="form-group">
+      <label>1. Chọn bài học:</label>
+      <select id="unitSelect">
+        <option value="ALL">Tất cả (Unit 1 + Unit 2 + Unit 3 + Review 1)</option>
+        <option value="1">Unit 1: Life Story We Admire</option>
+        <option value="2">Unit 2: A Multicultural World</option>
+        <option value="3">Unit 3: Green Living</option>
+        <option value="R1">Review 1</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label>2. Chọn hình thức kiểm tra:</label>
+      <select id="modeSelect">
+        <option value="mc_eng_to_vie">Trắc nghiệm: Cho tiếng Anh ➔ Chọn nghĩa tiếng Việt</option>
+        <option value="mc_vie_to_eng">Trắc nghiệm: Cho tiếng Việt ➔ Chọn từ tiếng Anh</option>
+        <option value="flashcard">Lật thẻ phản xạ: Tự nhẩm nghĩa ➔ Bấm để xem đáp án</option>
+      </select>
+    </div>
+
+    <button type="button" class="btn-main" id="startBtn">BẮT ĐẦU NGAY</button>
+  </div>
+
+  <!-- MÀN HÌNH LÀM BÀI -->
+  <div id="quizView" style="display: none;">
+    <div class="top-stats">
+      <span id="badgeUnit">Unit 1</span>
+      <span id="statProgress">1 / 50</span>
+      <span id="statScore">Đúng: 0</span>
+    </div>
+
+    <div class="progress-bar">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+
+    <!-- THẺ TỪ VỰNG -->
+    <div class="vocab-card" id="cardBox" onclick="handleCardClick()">
+      <div class="vocab-word" id="displayWord">admire</div>
+      <div class="vocab-type" id="displayType">(v)</div>
+      <div class="hint-sub" id="displayHint"></div>
+    </div>
+
+    <!-- KHU VỰC TRẮC NGHIỆM -->
+    <div id="multipleChoiceArea" class="options-grid"></div>
+
+    <!-- KHU VỰC LẬT THẺ PHẢN XẠ -->
+    <div id="flashcardArea" style="display: none;">
+      <div class="flashcard-actions">
+        <button type="button" class="btn-fc btn-fc-wrong" onclick="evalFlashcard(false)">❌ Quên rồi</button>
+        <button type="button" class="btn-fc btn-fc-correct" onclick="evalFlashcard(true)">✅ Nhớ chính xác</button>
+      </div>
+    </div>
+
+    <button type="button" class="btn-next" id="nextBtn" style="display: none;" onclick="goToNext()">Câu tiếp theo ➔</button>
+  </div>
+
+  <!-- MÀN HÌNH TỔNG KẾT & LÀM LẠI CÂU SAI -->
+  <div id="resultView" class="result-box" style="display: none;">
+    <h2>Kết Quả Ôn Tập</h2>
+    <div class="result-score" id="scorePercent">0%</div>
+    <p id="resultText">Bạn đã hoàn thành bài ôn tập.</p>
+
+    <div id="mistakeSection" style="display: none;">
+      <h3 style="font-size: 1rem; color: #f87171; margin-top: 16px; text-align: left;">Các từ bạn đã chọn sai:</h3>
+      <div class="mistake-list" id="mistakeList"></div>
+      <button type="button" class="btn-main" style="background: #ea580c; margin-bottom: 10px;" onclick="retryMistakes()">🔁 Luyện riêng các câu sai này</button>
+    </div>
+
+    <button type="button" class="btn-main" style="background: #334155; margin-top: 8px;" onclick="backToMenu()">Quay lại cài đặt</button>
+  </div>
+</div>
+
+<script>
+// BẮT MỌI LỖI PHÁT SINH VÀ BÁO LÊN MÀN HÌNH
+window.onerror = function(msg, url, line) {
+  alert("Có lỗi xảy ra: " + msg + " (Dòng: " + line + ")");
+  return false;
+};
+
+// KHO DỮ LIỆU TỪ VỰNG CHUẨN XÁC
+const VOCAB = [
+  // UNIT 1
+  { word: "admire", type: "v", meaning: "ngưỡng mộ, khâm phục", unit: "1" },
+  { word: "admiration", type: "n", meaning: "sự ngưỡng mộ, lòng khâm phục", unit: "1" },
+  { word: "admirable", type: "adj", meaning: "đáng ngưỡng mộ, đáng khâm phục", unit: "1" },
+  { word: "diary", type: "n", meaning: "nhật ký", unit: "1" },
+  { word: "volunteer", type: "v/n", meaning: "tình nguyện / tình nguyện viên", unit: "1" },
+  { word: "voluntary", type: "adj", meaning: "tự nguyện; tình nguyện", unit: "1" },
+  { word: "voluntarily", type: "adv", meaning: "một cách tự nguyện", unit: "1" },
+  { word: "join", type: "v", meaning: "tham gia, gia nhập", unit: "1" },
+  { word: "army", type: "n", meaning: "quân đội", unit: "1" },
+  { word: "surgeon", type: "n", meaning: "bác sĩ phẫu thuật", unit: "1" },
+  { word: "surgery", type: "n", meaning: "cuộc phẫu thuật", unit: "1" },
+  { word: "resist", type: "v", meaning: "chống lại, kháng cự", unit: "1" },
+  { word: "resistance", type: "n", meaning: "sự kháng cự", unit: "1" },
+  { word: "resistant", type: "adj", meaning: "có khả năng chống lại", unit: "1" },
+  { word: "field hospital", type: "n", meaning: "bệnh viện dã chiến", unit: "1" },
+  { word: "account", type: "n", meaning: "lời kể, bản ghi chép", unit: "1" },
+  { word: "alive", type: "adj", meaning: "còn sống", unit: "1" },
+  { word: "enemy", type: "n", meaning: "kẻ thù", unit: "1" },
+  { word: "duty", type: "n", meaning: "nhiệm vụ", unit: "1" },
+  { word: "soldier", type: "n", meaning: "người lính", unit: "1" },
+  { word: "death", type: "n", meaning: "cái chết", unit: "1" },
+  { word: "dead", type: "adj", meaning: "chết", unit: "1" },
+  { word: "deadly", type: "adj", meaning: "chết người, chí mạng", unit: "1" },
+  { word: "publish", type: "v", meaning: "xuất bản", unit: "1" },
+  { word: "publication", type: "n", meaning: "sự xuất bản, ấn phẩm", unit: "1" },
+  { word: "publisher", type: "n", meaning: "nhà xuất bản", unit: "1" },
+  { word: "translate into", type: "v", meaning: "dịch sang", unit: "1" },
+  { word: "translation", type: "n", meaning: "bản dịch; sự dịch thuật", unit: "1" },
+  { word: "translator", type: "n", meaning: "biên dịch viên, dịch giả", unit: "1" },
+  { word: "consider", type: "v", meaning: "cân nhắc; xem xét, coi là", unit: "1" },
+  { word: "consideration", type: "n", meaning: "sự cân nhắc; sự xem xét", unit: "1" },
+  { word: "considerate", type: "adj", meaning: "chu đáo, biết quan tâm", unit: "1" },
+  { word: "devote to", type: "v", meaning: "cống hiến, tận tâm", unit: "1" },
+  { word: "operate on", type: "v", meaning: "phẫu thuật cho ai/cái gì", unit: "1" },
+  { word: "operation", type: "n", meaning: "ca phẫu thuật", unit: "1" },
+  { word: "decade", type: "n", meaning: "thập kỷ (10 năm)", unit: "1" },
+  { word: "describe", type: "v", meaning: "mô tả, miêu tả", unit: "1" },
+  { word: "description", type: "n", meaning: "sự mô tả", unit: "1" },
+  { word: "descriptive", type: "adj", meaning: "mang tính mô tả", unit: "1" },
+  { word: "be based on", type: "phr", meaning: "dựa trên", unit: "1" },
+  { word: "attend", type: "v", meaning: "tham dự, tham gia", unit: "1" },
+  { word: "achieve", type: "v", meaning: "đạt được, giành được", unit: "1" },
+  { word: "achievement", type: "n", meaning: "thành tựu", unit: "1" },
+  { word: "achievable", type: "adj", meaning: "có thể đạt được", unit: "1" },
+  { word: "impress", type: "v", meaning: "gây ấn tượng", unit: "1" },
+  { word: "impression", type: "n", meaning: "sự ấn tượng", unit: "1" },
+  { word: "impressive", type: "adj", meaning: "gây ấn tượng sâu sắc", unit: "1" },
+  { word: "marry", type: "v", meaning: "kết hôn", unit: "1" },
+  { word: "hero", type: "n", meaning: "anh hùng", unit: "1" },
+  { word: "heroine", type: "n", meaning: "nữ anh hùng", unit: "1" },
+  { word: "heroic", type: "adj", meaning: "anh dũng, quả cảm", unit: "1" },
+  { word: "apply for", type: "v", meaning: "nộp đơn xin việc", unit: "1" },
+  { word: "create", type: "v", meaning: "tạo ra, sáng tạo", unit: "1" },
+  { word: "genius", type: "n", meaning: "thiên tài", unit: "1" },
+  { word: "biology", type: "n", meaning: "sinh học", unit: "1" },
+  { word: "biological parents", type: "n", meaning: "cha mẹ ruột", unit: "1" },
+  { word: "adopt", type: "v", meaning: "nhận nuôi; áp dụng", unit: "1" },
+  { word: "bond over", type: "v", meaning: "gắn kết nhờ sở thích chung", unit: "1" },
+  { word: "drop out", type: "phr v", meaning: "bỏ học giữa chừng", unit: "1" },
+  { word: "cutting-edge", type: "adj", meaning: "tiên tiến nhất, hiện đại nhất", unit: "1" },
+  { word: "contribute to", type: "v", meaning: "đóng góp vào", unit: "1" },
+  { word: "blockbuster", type: "n", meaning: "bộ phim bom tấn", unit: "1" },
+  { word: "diagnose sb with sth", type: "v", meaning: "chẩn đoán ai bị bệnh gì", unit: "1" },
+  { word: "pass away", type: "phr v", meaning: "qua đời, từ trần", unit: "1" },
+  { word: "visionary", type: "adj/n", meaning: "có tầm nhìn xa / người có tầm nhìn", unit: "1" },
+  { word: "resign", type: "v", meaning: "từ chức", unit: "1" },
+  { word: "carry out", type: "phr v", meaning: "tiến hành, thực hiện", unit: "1" },
+  { word: "succeed in", type: "v", meaning: "thành công trong việc gì", unit: "1" },
+  { word: "interact with", type: "v", meaning: "tương tác với", unit: "1" },
+  { word: "biography", type: "n", meaning: "tiểu sử", unit: "1" },
+  { word: "be on cloud nine", type: "idiom", meaning: "cực kỳ vui sướng, hạnh phúc", unit: "1" },
+  { word: "inspire", type: "v", meaning: "truyền cảm hứng", unit: "1" },
+  { word: "defeat", type: "v/n", meaning: "đánh bại / sự thất bại", unit: "1" },
+
+  // UNIT 2
+  { word: "cultural", type: "adj", meaning: "thuộc về văn hóa", unit: "2" },
+  { word: "multicultural", type: "adj", meaning: "đa văn hóa", unit: "2" },
+  { word: "be located in/on", type: "phr", meaning: "tọa lạc, nằm ở", unit: "2" },
+  { word: "diversity", type: "n", meaning: "sự đa dạng, tính phong phú", unit: "2" },
+  { word: "cuisine", type: "n", meaning: "ẩm thực (phong cách nấu ăn)", unit: "2" },
+  { word: "booth", type: "n", meaning: "gian hàng, quầy rạp", unit: "2" },
+  { word: "souvenir", type: "n", meaning: "quà lưu niệm", unit: "2" },
+  { word: "traditional", type: "adj", meaning: "thuộc truyền thống", unit: "2" },
+  { word: "tug of war", type: "n", meaning: "trò chơi kéo co", unit: "2" },
+  { word: "bamboo dancing", type: "n", meaning: "múa sạp, nhảy sạp", unit: "2" },
+  { word: "identity", type: "n", meaning: "bản sắc, danh tính", unit: "2" },
+  { word: "separate", type: "v/adj", meaning: "tách rời / riêng biệt, độc lập", unit: "2" },
+  { word: "destructive", type: "adj", meaning: "có tính tàn phá, hủy diệt", unit: "2" },
+  { word: "originate", type: "v", meaning: "bắt nguồn, khởi nguồn", unit: "2" },
+  { word: "trendy", type: "adj", meaning: "hợp thời trang, theo xu hướng", unit: "2" },
+  { word: "custom", type: "n", meaning: "phong tục tập quán", unit: "2" },
+  { word: "globalisation", type: "n", meaning: "sự toàn cầu hóa", unit: "2" },
+  { word: "have impact on", type: "phr", meaning: "có tác động, ảnh hưởng đến", unit: "2" },
+  { word: "food chain", type: "n", meaning: "chuỗi thức ăn", unit: "2" },
+  { word: "unique", type: "adj", meaning: "độc nhất, duy nhất", unit: "2" },
+  { word: "furthermore", type: "adv", meaning: "hơn nữa, thêm vào đó", unit: "2" },
+  { word: "suitable for", type: "adj", meaning: "phù hợp, thích hợp với", unit: "2" },
+  { word: "captivate", type: "v", meaning: "làm say đắm, quyến rũ", unit: "2" },
+  { word: "cross-cultural", type: "adj", meaning: "liên văn hóa", unit: "2" },
+  { word: "blend", type: "v", meaning: "pha trộn, hòa quyện", unit: "2" },
+  { word: "keep up with", type: "phr v", meaning: "bắt kịp, theo kịp", unit: "2" },
+  { word: "strengthen", type: "v", meaning: "củng cố, làm mạnh lên", unit: "2" },
+  { word: "worsen", type: "v", meaning: "làm tồi tệ hơn, xấu đi", unit: "2" },
+  { word: "appreciate", type: "v", meaning: "đánh giá cao, trân trọng", unit: "2" },
+  { word: "pocket money", type: "n", meaning: "tiền tiêu vặt", unit: "2" },
+  { word: "anxiety", type: "n", meaning: "sự lo âu, băn khoăn", unit: "2" },
+  { word: "barrier", type: "n", meaning: "rào cản, chướng ngại vật", unit: "2" },
+  { word: "focus on", type: "v", meaning: "tập trung vào", unit: "2" },
+  { word: "find out", type: "phr v", meaning: "tìm ra, phát hiện ra", unit: "2" },
+  { word: "prohibit", type: "v", meaning: "nghiêm cấm", unit: "2" },
+
+  // UNIT 3
+  { word: "deal with", type: "phr v", meaning: "giải quyết, xử lý, đối phó", unit: "3" },
+  { word: "in advance", type: "phr", meaning: "trước, sớm hơn", unit: "3" },
+  { word: "carbon footprint", type: "n", meaning: "dấu chân carbon", unit: "3" },
+  { word: "eco-friendly", type: "adj", meaning: "thân thiện môi trường", unit: "3" },
+  { word: "decompose", type: "v", meaning: "phân hủy (hữu cơ)", unit: "3" },
+  { word: "refillable", type: "adj", meaning: "có thể làm đầy/đổ đầy lại", unit: "3" },
+  { word: "single-use", type: "adj", meaning: "dùng một lần rồi bỏ", unit: "3" },
+  { word: "landfill", type: "n", meaning: "bãi chôn lấp rác", unit: "3" },
+  { word: "packaging", type: "n", meaning: "bao bì đóng gói", unit: "3" },
+  { word: "recyclable", type: "adj", meaning: "có thể tái chế", unit: "3" },
+  { word: "contaminate", type: "v", meaning: "làm nhiễm bẩn, làm ô nhiễm", unit: "3" },
+  { word: "rinse out", type: "phr v", meaning: "súc sạch, tráng rửa sạch bên trong", unit: "3" },
+  { word: "vending machine", type: "n", meaning: "máy bán hàng tự động", unit: "3" },
+  { word: "made of", type: "phr", meaning: "làm từ (chất liệu không biến chất)", unit: "3" },
+  { word: "made from", type: "phr", meaning: "làm từ (chất liệu đã bị biến chất)", unit: "3" },
+  { word: "compostable", type: "adj", meaning: "có thể ủ làm phân hữu cơ", unit: "3" },
+  { word: "leaflet", type: "n", meaning: "tờ rơi", unit: "3" },
+  { word: "bird feeder", type: "n", meaning: "khay để thức ăn cho chim", unit: "3" },
+  { word: "put sth into practice", type: "idiom", meaning: "đưa vào thực tiễn áp dụng", unit: "3" },
+  { word: "sky lantern", type: "n", meaning: "đèn trời", unit: "3" },
+  { word: "breathtaking", type: "adj", meaning: "đẹp ngoạn mục, nghẹt thở", unit: "3" },
+  { word: "wildfire", type: "n", meaning: "cháy rừng", unit: "3" },
+
+  // REVIEW 1
+  { word: "energy-efficient", type: "adj", meaning: "tiết kiệm năng lượng", unit: "R1" },
+  { word: "ethnic minority", type: "n", meaning: "dân tộc thiểu số", unit: "R1" },
+  { word: "bacterium", type: "n", meaning: "vi khuẩn", unit: "R1" },
+  { word: "malaria", type: "n", meaning: "bệnh sốt rét", unit: "R1" },
+  { word: "bleed", type: "v", meaning: "chảy máu", unit: "R1" },
+  { word: "remarkable", type: "adj", meaning: "đáng chú ý, nổi bật", unit: "R1" }
+];
+
+// TRẠNG THÁI HỆ THỐNG
+let currentList = [];
+let currentIndex = 0;
+let correctCount = 0;
+let wrongCount = 0;
+let mistakes = [];
+let mode = "";
+let correctAnswer = "";
+let isCardFlipped = false;
+
+// GẮN SỰ KIỆN NÚT BẮT ĐẦU NGAY KHI TRANG TẢI XONG
+document.addEventListener("DOMContentLoaded", function() {
+  const startBtn = document.getElementById("startBtn");
+  if (startBtn) {
+    startBtn.onclick = startSession;
+  }
+});
+
+function startSession() {
+  const unitVal = document.getElementById("unitSelect").value;
+  mode = document.getElementById("modeSelect").value;
+
+  let pool = VOCAB;
+  if (unitVal !== "ALL") {
+    pool = VOCAB.filter(item => item.unit === unitVal);
+  }
+
+  currentList = shuffle([...pool]);
+  currentIndex = 0;
+  correctCount = 0;
+  wrongCount = 0;
+  mistakes = [];
+
+  document.getElementById("setupView").style.display = "none";
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("quizView").style.display = "block";
+
+  renderCurrentWord();
+}
+
+function renderCurrentWord() {
+  const item = currentList[currentIndex];
+  const total = currentList.length;
+
+  document.getElementById("badgeUnit").innerText = item.unit === "R1" ? "Review 1" : "Unit " + item.unit;
+  document.getElementById("statProgress").innerText = (currentIndex + 1) + " / " + total;
+  document.getElementById("statScore").innerText = "Đúng: " + correctCount;
+  document.getElementById("progressFill").style.width = ((currentIndex / total) * 100) + "%";
+  document.getElementById("nextBtn").style.display = "none";
+
+  const isFlashcard = (mode === "flashcard");
+  document.getElementById("multipleChoiceArea").style.display = isFlashcard ? "none" : "flex";
+  document.getElementById("flashcardArea").style.display = isFlashcard ? "block" : "none";
+
+  isCardFlipped = false;
+
+  if (isFlashcard) {
+    // CHẾ ĐỘ LẬT THẺ
+    document.getElementById("displayWord").innerText = item.word;
+    document.getElementById("displayType").innerText = "(" + item.type + ")";
+    document.getElementById("displayHint").innerText = "👉 Bấm vào khung này để xem nghĩa đối chiếu";
+  } else {
+    // CHẾ ĐỘ TRẮC NGHIỆM
+    const isEngToVie = (mode === "mc_eng_to_vie");
+    document.getElementById("displayWord").innerText = isEngToVie ? item.word : item.meaning;
+    document.getElementById("displayType").innerText = "(" + item.type + ")";
+    document.getElementById("displayHint").innerText = isEngToVie ? "Chọn nghĩa tiếng Việt đúng:" : "Chọn từ tiếng Anh đúng:";
+
+    correctAnswer = isEngToVie ? item.meaning : item.word;
+    const targetKey = isEngToVie ? "meaning" : "word";
+
+    // 4 ĐÁP ÁN KHÔNG TRÙNG NHAU
+    const otherItems = shuffle(VOCAB.filter(x => x[targetKey] !== correctAnswer));
+    const optSet = new Set([correctAnswer]);
+    for (let o of otherItems) {
+      optSet.add(o[targetKey]);
+      if (optSet.size === 4) break;
+    }
+
+    const options = shuffle(Array.from(optSet));
+    const container = document.getElementById("multipleChoiceArea");
+    container.innerHTML = "";
+
+    const labels = ["A", "B", "C", "D"];
+    options.forEach((optText, i) => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.className = "opt-btn";
+      btn.innerHTML = `<span style="color:#818cf8; font-weight:700;">${labels[i]}.</span> <span>${optText}</span>`;
+      btn.onclick = function() { checkChoice(btn, optText, item); };
+      container.appendChild(btn);
+    });
+  }
+}
+
+// BẤM VÀO THẺ ĐỂ LẬT NGHĨA Ở CHẾ ĐỘ FLASHCARD
+function handleCardClick() {
+  if (mode !== "flashcard") return;
+  const item = currentList[currentIndex];
+  isCardFlipped = !isCardFlipped;
+
+  if (isCardFlipped) {
+    document.getElementById("displayWord").innerText = item.meaning;
+    document.getElementById("displayType").innerText = item.word + " (" + item.type + ")";
+    document.getElementById("displayHint").innerText = "Bạn đã tự nhớ đúng hay quên? Hãy bấm nút bên dưới:";
+  } else {
+    document.getElementById("displayWord").innerText = item.word;
+    document.getElementById("displayType").innerText = "(" + item.type + ")";
+    document.getElementById("displayHint").innerText = "👉 Bấm vào khung này để xem nghĩa đối chiếu";
+  }
+}
+
+// KIỂM TRA ĐÁP ÁN TRẮC NGHIỆM
+function checkChoice(btn, chosen, item) {
+  const allBtns = document.querySelectorAll(".opt-btn");
+  allBtns.forEach(b => b.disabled = true);
+
+  if (chosen === correctAnswer) {
+    btn.classList.add("correct");
+    correctCount++;
+  } else {
+    btn.classList.add("wrong");
+    wrongCount++;
+    if (!mistakes.some(m => m.word === item.word)) {
+      mistakes.push(item);
+    }
+    allBtns.forEach(b => {
+      if (b.innerText.includes(correctAnswer)) b.classList.add("correct");
+    });
+  }
+
+  document.getElementById("statScore").innerText = "Đúng: " + correctCount;
+  document.getElementById("nextBtn").style.display = "block";
+}
+
+// ĐÁNH GIÁ Ở CHẾ ĐỘ FLASHCARD
+function evalFlashcard(isKnown) {
+  const item = currentList[currentIndex];
+  if (isKnown) {
+    correctCount++;
+  } else {
+    wrongCount++;
+    if (!mistakes.some(m => m.word === item.word)) {
+      mistakes.push(item);
+    }
+  }
+  goToNext();
+}
+
+function goToNext() {
+  currentIndex++;
+  if (currentIndex < currentList.length) {
+    renderCurrentWord();
+  } else {
+    showResult();
+  }
+}
+
+function showResult() {
+  document.getElementById("quizView").style.display = "none";
+  document.getElementById("resultView").style.display = "block";
+
+  const total = currentList.length;
+  const pct = Math.round((correctCount / total) * 100);
+  document.getElementById("scorePercent").innerText = pct + "%";
+  document.getElementById("resultText").innerText = `Đúng: ${correctCount} / ${total} câu (Sai: ${wrongCount} câu)`;
+
+  const mistakeSection = document.getElementById("mistakeSection");
+  const listEl = document.getElementById("mistakeList");
+  listEl.innerHTML = "";
+
+  if (mistakes.length > 0) {
+    mistakeSection.style.display = "block";
+    mistakes.forEach(m => {
+      const row = document.createElement("div");
+      row.className = "mistake-item";
+      row.innerHTML = `<b>${m.word}</b> <span style="color:#86efac;">${m.meaning}</span>`;
+      listEl.appendChild(row);
+    });
+  } else {
+    mistakeSection.style.display = "none";
+  }
+}
+
+function retryMistakes() {
+  currentList = shuffle([...mistakes]);
+  currentIndex = 0;
+  correctCount = 0;
+  wrongCount = 0;
+  mistakes = [];
+
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("quizView").style.display = "block";
+  renderCurrentWord();
+}
+
+function backToMenu() {
+  document.getElementById("resultView").style.display = "none";
+  document.getElementById("quizView").style.display = "none";
+  document.getElementById("setupView").style.display = "block";
+}
+
+function shuffle(arr) {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+</script>
+</body>
+</html>
